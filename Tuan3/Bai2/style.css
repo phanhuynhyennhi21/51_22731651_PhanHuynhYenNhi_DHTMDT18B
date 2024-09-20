@@ -1,0 +1,245 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 960px;
+    box-sizing: border-box;
+    margin: auto;
+    border: 2px solid black;
+}
+
+header {
+    background-color: rgb(41, 78, 121);
+    height: 120px;
+    width: 957px;
+    display: flex;
+}
+
+.header-logo {
+    display: flex;
+}
+
+.header-logo-img {
+    margin: 0 15px;
+    height: 100px;
+    width: 80px;
+}
+
+.header-logo-text {
+    color: white;
+    align-content: center;
+}
+
+.header-search {
+    position: absolute;
+    top: 20px;
+    margin-left: 325px;
+}
+
+.header-search input {
+    height: 25px;
+    color: white;
+    align-content: center;
+    margin-right: 5px;
+    width: 200px;
+}
+
+.header-search button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+}
+
+.header-menu {
+    position: absolute;
+    top: 82px;
+    right: 230px;
+}
+
+.header-menu ul {
+    list-style-type: none;
+}
+
+.header-menu ul li {
+    display: inline-block;
+    position: relative;
+}
+
+.header-menu ul li a {
+    margin: 0 3px;
+    font-weight: bold;
+    background-color: royalblue;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    display: block;
+}
+
+.header-menu ul li a:hover {
+    background-color: palevioletred;
+}
+
+.submenu {
+    display: none;
+    position: absolute;
+}
+
+.submenu li {
+    display: block;
+}
+
+.dropdown:hover .submenu {
+    display: block;
+}
+
+.submenu li a:hover {
+    background-color: palevioletred;
+}
+
+.content {
+    display: flex;
+}
+
+.center-title {
+    padding-top: 30px;
+    padding-left: 10px;
+    padding-bottom: 10px;
+    font-size: 25px;
+    color: rgb(75, 75, 75);
+}
+
+.title-border {
+    margin-left: 10px;
+    border-bottom: 2px dashed navy;
+    width: 610px;
+}
+
+.text-form {
+    display: flex;
+}
+
+.center-note {
+    text-align: justify;
+    width: 370px;
+    margin-top: 10px;
+    font-style: italic;
+    margin-left: 10px;
+    color: red;
+    text-shadow: 3px 3px 3px green;
+}
+
+.center-form {
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.td {
+    padding: 2px 5px;
+    font-size: 17px;
+}
+
+.input-style {
+    border: 1px solid black;
+    height: 25px;
+    background-color: rgba(233, 233, 233, 0.819);
+}
+
+textarea {
+    width: 350px;
+    height: 100px;
+    background-color: rgba(233, 233, 233, 0.819);
+}
+
+.submit,
+.reset {
+    height: 20px;
+    width: 60px;
+    text-align: center;
+    align-content: center;
+    margin: 5px;
+}
+
+.text-title {
+    margin-top: 10px;
+    margin-left: 15px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: rgb(75, 75, 75);
+}
+
+.text-title-border {
+    margin-left: 15px;
+    border-bottom: 2px dashed navy;
+    width: 215px;
+}
+
+.text {
+    margin-left: 15px;
+    font-size: 15px;
+    color: rgb(72, 72, 72);
+    margin-right: 10px;
+}
+
+.right {
+    margin-right: 20px;
+    margin-top: 30px;
+    width: 350px;
+    height: 385px;
+    background-color: rgba(240, 238, 238, 0.836);
+}
+
+.right-title {
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    color: rgb(75, 75, 75);
+}
+
+.right-title-border {
+    margin-left: 20px;
+    border-bottom: 2px dashed navy;
+    margin-right: 20px;
+}
+
+.right-picture {
+    border: 1px solid black;
+    margin: 0 20px;
+    margin-top: 10px;
+}
+
+.right-picture img {
+    padding-top: 3px;
+    padding-left: 3px;
+    padding-right: 3px;
+    height: 160px;
+    width: 250px;
+}
+
+.right-text {
+    text-align: justify;
+    margin: 10px 20px;
+    font-size: 15px;
+}
+
+footer {
+    background-color: rgb(28, 52, 81);
+    height: 40px;
+}
+
+.footer-text {
+    margin: 10px;
+    line-height: 40px;
+    font-size: 17px;
+}
+
+.footer-text-style-1 {
+    color: white;
+}
+
+.footer-text-style-2 {
+    color: rgba(255, 253, 253, 0.464);
+}

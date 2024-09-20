@@ -1,0 +1,145 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.wrapper {
+    margin: auto;
+    background: linear-gradient(to bottom, #7BD5F5, #1CA7EC);
+}
+
+header {
+    display: flex;
+    border-bottom: 4px dotted white;
+}
+
+.menu ul {
+    margin: 10px;
+}
+
+.menu ul li {
+    display: inline-block;
+}
+
+.menu ul li a {
+    list-style: none;
+    text-decoration: none;
+    color: white;
+    margin: 10px 20px;
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.menu ul li a:hover {
+    color: blue;
+    border-bottom: 2px solid blue;
+}
+
+.logo {
+    margin-left: auto;
+    margin-right: 20px;
+    color: white;
+    text-shadow: 2px 2px 5px rgb(2, 2, 80);
+    margin-top: 5px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.content {
+    display: flex;
+}
+
+.title {
+    margin-left: 20px;
+    color: white;
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 30px;
+}
+
+.text {
+    color: white;
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+form {
+    margin: 10px 60px;
+    color: white;
+}
+
+label {
+    line-height: 20px;
+}
+
+select {
+    border: 1px solid blue;
+    border-radius: 5px;
+    width: 60px;
+    height: 25px;
+}
+
+input {
+    width: 250px;
+    margin-top: 5px;
+    height: 20px;
+    border: 1px solid blue;
+    border-radius: 5px;
+    height: 25px;
+}
+
+textarea {
+    margin-top: 10px;
+    height: 150px;
+    width: 250px;
+    border: 1px solid blue;
+    border-radius: 5px;
+}
+
+button {
+    margin-top: 5px;
+    width: 60px;
+    height: 20px;
+    border: 1px dashed blue;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.picture {
+    float: right;
+}
+
+.picture img {
+    height: 450px;
+    width: 700px;
+    margin-top: 25px;
+    margin-right: 50px;
+    margin-left: 20px;
+}
+
+.picture h1 {
+    color: blue;
+    text-shadow: 3px 3px 0px rgb(198, 198, 39);
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.picture p {
+    color: blue;
+    font-size: 23px;
+    font-weight: bold;
+    margin-left: 70px;
+    margin-bottom: 10px;
+}
+
+footer {
+    height: 60px;
+    border-top: 4px dotted white;
+}
+
+.footer-text {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+}
