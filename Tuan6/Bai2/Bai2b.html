@@ -1,121 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="..//css/boot.css" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2b</title>
+    <link rel="stylesheet" href="../css/boot.css">
     <script src="../js/jquery.js"></script>
     <script src="../js/boot.js"></script>
-  </head>
-  <body>
-    <div class="-fluid w-50 mx-auto mt-5 pt-3 ">
-      <h1 class="text-success text-center">PHÉP TÍNH CƠ BẢN</h1>
-      <label for="">Nhập số thứ 1: </label>
-      <input class="w-75 mb-3" type="text" id="num1" /><br />
-      <span class="text-danger" id="error1"></span>
-      <br />
-      <label for="'">Nhập số thứ 2: </label>
-      <input class="w-75 mb-3" type="text" name="" id="num2" /><br />
-      <span class="text-danger" id="error2"></span>
-      <br />
-      <a
-        name=""
-        id="cong"
-        class="ms-5 me-3 btn btn-success"
-        href="#"
-        role="button"
-        onclick="cong()"
-        >Cộng</a
-      >
-      <a
-        name=""
-        id="tru"
-        class="mx-3 btn btn-success"
-        href="#"
-        role="button"
-        onclick="tru()"
-        >Trừ</a
-      >
-      <a
-        name=""
-        id="chia"
-        class="mx-3 btn btn-success"
-        href="#"
-        role="button"
-        onclick="chia()"
-        >Chia</a
-      >
-      <a
-        name=""
-        id="chiadu"
-        class="mx-3 btn btn-success"
-        href="#"
-        role="button"
-        onclick="chiadu()"
-        >Chia dư</a
-      >
-      <br />
-      <label for="" class="mt-3 pe-5">Kết quả</label>
-      <input class="w-75" type="text" id="kq" disabled />
+    <style>
+        button {
+            margin-right: 20px;
+        }
+        .error {
+            color: red;
+            visibility: hidden;
+        }
+        .result {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="row">
+            <h2 class="text-center">PHÉP TÍNH CƠ BẢN</h2>
+        </div>
+        <form action="" class="was-validated">
+            <div class="row">
+                <label for="">Nhập số thứ nhất</label> 
+            </div>
+            <div class="row">
+                <input type="text" id="sothunhat" class="form-control" style="width: 500px;" required>
+                <div class="error" id="error1">Vui lòng nhập một số hợp lệ</div>
+            </div>
+            <div class="row">
+                <label for="">Nhập số thứ hai</label>
+            </div>
+            <div class="row">
+                <input type="text" id="sothuhai" class="form-control" style="width: 500px;" required>
+                <div class="error" id="error2">Vui lòng nhập một số hợp lệ</div>
+            </div>
+            <div class="row mt-2">
+                <button class="w-auto btn btn-primary" type="button" onclick="calculate('add')">Cộng</button>
+                <button class="w-auto btn btn-success" type="button" onclick="calculate('subtract')">Trừ</button>
+                <button class="w-auto btn btn-danger" type="button" onclick="calculate('multiply')">Nhân</button>
+                <button class="w-auto btn btn-warning" type="button" onclick="calculate('divide')">Chia</button>
+                <button class="w-auto btn btn-secondary" type="button" onclick="calculate('mod')">Chia dư</button>
+            </div>
+            <div class="row mt-2">
+                <label for="" style="font-size: 18px;">Kết quả</label>
+                <div class="result" id="result"></div>
+            </div>
+        </form>
     </div>
     <script>
-      
-      function check() {
-        var num1 = document.getElementById("num1").value;
-        var num2 = document.getElementById("num2").value;
-        var error1 = document.getElementById("error1");
-        var error2 = document.getElementById("error2");
-        var kq = document.getElementById("kq");
-
-        error1.textContent= "";
-        error2.textContent= "";
-        
-        if (isNaN(num1)) {
-          kq.value = "Lỗi !!!"
-          error1.textContent = "Đây không phải số";
-        };
-        if (isNaN(num2  )) {
-          error2.textContent = "Đây không phải số";
-          kq.value = "Lỗi !!!"
+        // Hàm kiểm tra xem giá trị nhập vào có phải số hay không
+        function isNumber(value) {
+            return !isNaN (value) && value.trim () !== '';
         }
-      }
 
-      function cong() {
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var kq = document.getElementById("kq");
-        var ketqua = num1 + num2;
-        kq.value= ketqua;
-        check();
-      }
+         // Hàm thực hiện phép tính
+         function calculate(operation) {
+            // Lấy giá trị từ các ô input
+            let sothunhat = document.getElementById('sothunhat').value;
+            let sothuhai = document.getElementById('sothuhai').value;
+            let error1 = document.getElementById('error1');
+            let error2 = document.getElementById('error2');
+            
+            // Đặt lại lỗi
+            error1.style.visibility = 'hidden';
+            error2.style.visibility = 'hidden';
 
-      function tru() {
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var kq = document.getElementById("kq");
-        var ketqua = num1 - num2;
-        kq.value= ketqua;
-        check();
-      }
+            // Kiểm tra xem cả hai giá trị nhập vào có phải là số không
+            if (!isNumber(sothunhat)) {
+                error1.style.visibility = 'visible';
+                return;
+            }
+            if (!isNumber(sothuhai)) {
+                error2.style.visibility = 'visible';
+                return;
+            }
 
-      function chia() {
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var kq = document.getElementById("kq");
-        var ketqua = num1 / num2;
-        kq.value= ketqua;
-        check();
-      }
+            // Chuyển giá trị sang kiểu số
+            sothunhat = parseFloat(sothunhat);
+            sothuhai = parseFloat(sothuhai);
 
-      function chiadu() {
-        var num1 = parseFloat(document.getElementById("num1").value);
-        var num2 = parseFloat(document.getElementById("num2").value);
-        var kq = document.getElementById("kq");
-        var ketqua = num1 % num2;
-        kq.value= ketqua;
-        check();
-      }
+            let result;
+            // Thực hiện các phép tính dựa trên loại phép toán được chọn
+            switch (operation) {
+                case 'add':
+                    result = sothunhat + sothuhai;
+                    break;
+                case 'subtract':
+                    result = sothunhat - sothuhai;
+                    break;
+                case 'multiply':
+                    result = sothunhat * sothuhai;
+                    break;
+                case 'divide':
+                    if (sothuhai === 0) {
+                        result = "Không thể chia cho 0";
+                    } else {
+                        result = sothunhat / sothuhai;
+                    }
+                    break;
+                case 'mod':
+                    if (sothuhai === 0) {
+                        result = "Không thể chia cho 0";
+                    } else {
+                        result = sothunhat % sothuhai;
+                    }
+                    break;
+                default:
+                    result = "Phép tính không hợp lệ!";
+            }
+            // Hiển thị kết quả
+            document.getElementById('result').innerText = result;
+        }
     </script>
-  </body>
+</body>
 </html>

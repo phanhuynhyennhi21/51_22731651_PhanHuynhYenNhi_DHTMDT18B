@@ -1,94 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="../css/boot.css" />
-    <script src="../js/jquery-3.7.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-  </head>
-  <body>
-    <div id="form" class="container-fluid w-50 mx-auto mt-5 pt-3">
-      <h1>Chọn loại caffee:</h1>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="Trung Nguyen"
-          id="Trung_Nguyen"
-        />
-        <label class="form-check-label" for=""> Trung Nguyen </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="Me Kong"
-          id="Me_Kong"
-        />
-        <label class="form-check-label" for=""> Me Kong </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="New Life"
-          id="New_Life"
-        />
-        <label class="form-check-label" for=""> New Life </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="Ocean Blue"
-          id="Ocean_Blue"
-        />
-        <label class="form-check-label" for=""> Ocean Blue </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="Blue Space"
-          id="Blue_Space"
-        />
-        <label class="form-check-label" for=""> Blue Space </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          value="Windows"
-          id="Windows"
-        />
-        <label class="form-check-label" for=""> Windows </label>
-      </div>
-
-      <a name="" id="chon" onclick="chon()" class="btn btn-success" href="#" role="button">Chọn</a>
-
-      <br />
-      <div class="row">
-        <div class="col-3">Bạn chọn cafe:</div>
-        <div class="col text-danger" id="cf"></div>
-      </div>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chọn Loại Cafe</title>
+    <style>
+        #result {
+            color: red;
+        }
+        .container {
+            width: 400px;
+            border: 2px solid black;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h3 style="text-align: center;">Chọn loại cafe:</h3>
+        <form id="coffeeForm" style="margin-left: 10px;">
+            <input type="checkbox" id="trungnguyen" value="Trung Nguyen"> Trung Nguyen <br>
+            <input type="checkbox" id="mekong" value="Me Kong"> Me Kong <br>
+            <input type="checkbox" id="newlife" value="New Life"> New Life <br>
+            <input type="checkbox" id="oceanblue" value="Ocean Blue"> Ocean Blue <br>
+            <input type="checkbox" id="bluespace" value="Blue Space"> Blue Space <br>
+            <input type="checkbox" id="windows" value="Windows"> Windows <br><br>
+            <button type="button" onclick="displaySelected()">Chọn</button>
+        </form>
+        <p style="font-size: 18px; margin-left: 10px;" id="result">Bạn chọn cafe:</p>
     </div>
+
     <script>
-      function chon() {
-        var form = document.getElementById("form");
-        var checkboxes = form.querySelectorAll("input[type='checkbox']");
-        var cf = document.getElementById("cf");
-        var list=[];
+        function displaySelected() {
+            // Lấy tất cả các checkbox
+            const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            let selected = [];
+            
+            // Lặp qua từng checkbox để tìm những checkbox được chọn
+            checkboxes.forEach((checkbox) => {
+                if (checkbox.checked) {
+                    selected.push(checkbox.value);
+                }
+            });
 
-        checkboxes.forEach((checkbox) => {
-          if(checkbox.checked){
-            list.push(checkbox.value);
-          }
-        });
-        cf.textContent = ""+ list.join(", ");
-
-      }
+            // Hiển thị kết quả
+            document.getElementById('result').innerHTML = "Bạn chọn cafe: " + selected.join(", ");
+        }
     </script>
-  </body>
+</body>
 </html>

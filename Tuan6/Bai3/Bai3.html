@@ -1,67 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/boot.css" />
-    <script src="../js/boot.js"></script>
-    <title>Document</title>
-  </head>
-  <body>
-    <div class="container-fluid w-25 mx-auto mt-5 pt-3 row">
-      <img
-        src="../img/b1.jpg"
-        id="pic"
-        class="img-fluid mx-auto mx-auto col-12 mb-3"
-        alt=""
-      />
-      <a
-        name=""
-        id=""
-        class="btn btn-success col mx-3"
-        href="#"
-        role="button"
-        onclick="start()"
-        >Start</a
-      >
-      <a
-        name=""
-        id=""
-        class="btn btn-secondary col mx-3"
-        href="#"
-        role="button"
-        onclick="stop()"
-        >Stop</a
-      >
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3</title>
+</head>
+<body>
+    <div class="container" style="margin: 20px auto;">
+        <img id="image" src="../img/b1.jpg" width="300px" height="300px">
+        <br>
+    <button onclick="start()">Play</button>
+    <button onclick="stop()">Stop</button>
     </div>
+    
     <script>
-      var imgs = [
-        "../img/b1.jpg",
-        "../img/b2.jpg",
-        "../img/b3.jpg",
-        "../img/b4.jpg",
-        "../img/b5.jpg",
-        "../img/b6.jpg",
-        "../img/b7.jpg",
-        "../img/b8.jpg",
-        "../img/b9.jpg",
-        "../img/b10.jpg",
-      ];
-      var pic = document.getElementById("pic");
-      var i = 0;
-      var time;
+        // Mảng chứa các tên tập tin hình ảnh
+        let images = ['../img/b1.jpg','../img/b2.jpg','../img/b3.jpg','../img/b4.jpg','../img/b5.jpg','../img/b6.jpg','../img/b7.jpg','../img/b8.jpg','../img/b9.jpg','../img/b10.jpg'];
+        let imageElement = document.getElementById('image');
+        let timer;
+        let currentIndex = 0;
 
-      function start() {
-        pic.src = imgs[i];
-        i++;
-        if (i === imgs.length) {
-          i = 0;
+        // Hàm bắt đầu thay đổi hình ảnh
+        function start() {
+            timer = setInterval(function() {
+                imageElement.src = images[currentIndex];
+                currentIndex++;
+                if (currentIndex === images.length) {
+                    currentIndex = 0; // Quay lại hình đầu tiên sau khi hết mảng
+                }
+            }, 1000); // Thay đổi hình mỗi giây
         }
-        time = setTimeout(start, 1000);
-      }
-      function stop() {
-        clearTimeout(time);
-      }
+        // Hàm dừng thay đổi hình ảnh
+        function stop() {
+            clearInterval(timer);
+        }
     </script>
-  </body>
+</body>
 </html>
